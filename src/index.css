@@ -10,3 +10,70 @@
 @import "./css/styles/style.css";
 @import "./css/colors/scheme-01.css";
 @import "./css/styles/coloring.css";
+
+.keen-slider-container {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-color: black;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 9999px;
+}
+
+.arrow-left {
+  left: 0;
+}
+
+.arrow-right {
+  right: 0;
+}
+
+.arrow:focus {
+  outline: none;
+}
+
+.skeleton {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skeleton-img {
+  background-color: #e0e0e0;
+  height: 150px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.skeleton-avatar {
+  background-color: #e0e0e0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+}
+
+.skeleton-text {
+  background-color: #e0e0e0;
+  height: 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.skeleton-text.title {
+  width: 60%;
+  margin: 0 auto 10px auto;
+}
+
+.skeleton-text.subtitle {
+  width: 40%;
+  margin: 0 auto;
+}
