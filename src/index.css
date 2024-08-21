@@ -202,3 +202,68 @@
 .skeleton-text__explore-items.likes__explore-items {
   width: 20%;
 }
+
+.copy-feedback {
+  margin-left: 10px;
+  font-size: 0.9em;
+  color: green;
+}
+
+.loading__state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* AUTHOR */
+
+.skeleton-profile__author {
+  display: flex;
+  align-items: center;
+}
+
+.skeleton-avatar__author {
+  width: 150px;
+  height: 150px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+}
+
+.skeleton-desc__author{
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-title__author{
+  width: 175px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-color: #e0e0e0;
+  margin-left: 20px;
+  border-radius: 9999px;
+}
+
+.skeleton-tag__author{
+  width: 150px;
+  margin-bottom: 10px;
+  height: 15px;
+  background-color: #e0e0e0;
+  margin-left: 20px;
+  border-radius: 9999px;
+}
+
+.skeleton-followers__author{
+  width: 200px;
+  margin-bottom: 10px;
+  height: 50px;
+  background-color: #e0e0e0;
+  border-radius: 9999px
+}
+
+.skeleton-wrapper__author {
+  display: flex;
+  align-items: center;
+}
