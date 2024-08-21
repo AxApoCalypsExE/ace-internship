@@ -130,3 +130,30 @@
 .skeleton-text.subtitle__new-items {
   width: 40%;
 }
+
+/* TOP SELLERS */
+
+.skeleton-avatar__top-sellers {
+  background-color: #e0e0e0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.skeleton-text__top-sellers {
+  background-color: #e0e0e0;
+  height: 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.skeleton-text__top-sellers.name {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.skeleton-text__top-sellers.price {
+  width: 50px;
+}
