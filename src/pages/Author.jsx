@@ -126,10 +126,12 @@ const Author = () => {
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  <AuthorItems
-                    nftCollection={author.nftCollection}
-                    authorImage={author.authorImage}
-                  />
+                  {!isLoading && (
+                    <AuthorItems
+                      nftCollection={author.nftCollection}
+                      authorImage={author.authorImage}
+                    />
+                  )}
                 </div>
               </div>
             </div>

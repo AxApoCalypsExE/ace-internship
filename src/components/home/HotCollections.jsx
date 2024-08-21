@@ -71,7 +71,7 @@ const HotCollections = () => {
             &lt;
           </button>
           <div ref={sliderRef} className="keen-slider">
-            {!isLoading ? (
+            {isLoading ? (
               new Array(4).fill(0).map((_, index) => (
                 <div className="keen-slider__slide col-lg-3 col-md-4 col-sm-6" key={index}>
                   <div className="nft_coll skeleton">
