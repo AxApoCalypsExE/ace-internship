@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Explore = () => {
   useEffect(() => {
@@ -31,7 +33,14 @@ const Explore = () => {
 
         <section aria-label="section">
           <div className="container">
-            <div className="row">
+            <div
+              data-aos="fade-in"
+              data-aos-offset="200"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+              className="row"
+            >
               <ExploreItems />
             </div>
           </div>
@@ -41,4 +50,5 @@ const Explore = () => {
   );
 };
 
+AOS.init();
 export default Explore;
