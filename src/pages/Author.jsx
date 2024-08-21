@@ -4,6 +4,8 @@ import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../images/author_thumbnail.jpg";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Author = () => {
   const { authorId } = useParams();
@@ -66,20 +68,53 @@ const Author = () => {
 
         <section aria-label="section">
           <div className="container">
-            <div className="row">
+            <div
+              data-aos="fade-in"
+              data-aos-offset="200"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+              className="row"
+            >
               <div className="col-md-12">
                 {isLoading ? (
-                  <div className="d_profile de-flex skeleton-wrapper__author">
-                    <div className="skeleton-profile__author">
-                      <div className="skeleton-avatar__author"></div>
-                      <div className="skeleton-desc__author">
-                        <div className="skeleton-title__author"></div>
-                        <div className="skeleton-tag__author"></div>
-                        <div className="skeleton-title__author"></div>
+                  <>
+                    <div className="d_profile de-flex skeleton-wrapper__author">
+                      <div className="skeleton-profile__author">
+                        <div className="skeleton-avatar__author"></div>
+                        <div className="skeleton-desc__author">
+                          <div className="skeleton-title__author"></div>
+                          <div className="skeleton-tag__author"></div>
+                          <div className="skeleton-title__author"></div>
+                        </div>
+                      </div>
+                      <div className="skeleton-followers__author"></div>
+                    </div>
+                    <div className="col-md-12">
+                      <div className="de_tab tab_simple flex-skeleton__author">
+                        {new Array(8).fill(0).map((_, index) => (
+                          <div
+                            key={index}
+                            className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                            style={{
+                              display: "block",
+                              backgroundSize: "cover",
+                            }}
+                          >
+                            <div className="nft__item skeleton__explore-items">
+                              <div className="author_list_pp skeleton-avatar__explore-items"></div>
+                              <div className="skeleton-img__explore-items"></div>
+                              <div className="nft__item_info">
+                                <div className="skeleton-text__explore-items title__explore-items"></div>
+                                <div className="skeleton-text__explore-items price__explore-items"></div>
+                                <div className="skeleton-text__explore-items likes__explore-items"></div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                    <div className="skeleton-followers__author"></div>
-                  </div>
+                  </>
                 ) : (
                   <div className="d_profile de-flex">
                     <div className="de-flex-col">
@@ -142,4 +177,5 @@ const Author = () => {
   );
 };
 
+AOS.init();
 export default Author;

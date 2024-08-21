@@ -220,6 +220,12 @@
 
 /* AUTHOR */
 
+.flex-skeleton__author {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .skeleton-profile__author {
   display: flex;
   align-items: center;
@@ -317,3 +323,4 @@
   width: 30%;
   height: 30px;
 }
+

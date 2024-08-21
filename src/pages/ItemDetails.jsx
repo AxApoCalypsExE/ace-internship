@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ItemDetails = () => {
   const { nftId } = useParams();
@@ -36,7 +38,14 @@ const ItemDetails = () => {
         <div id="top"></div>
         <section aria-label="section" className="mt90 sm-mt-0">
           <div className="container">
-            <div className="row">
+            <div
+              data-aos="fade-in"
+              data-aos-offset="200"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+              className="row"
+            >
               {isLoading ? (
                 <>
                   <div className="col-md-6 text-center">
@@ -159,4 +168,5 @@ const ItemDetails = () => {
   );
 };
 
+AOS.init();
 export default ItemDetails;

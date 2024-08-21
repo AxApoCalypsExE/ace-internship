@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const NewItems = () => {
   const apiUrl =
@@ -87,12 +89,27 @@ const NewItems = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
+              <h2
+                data-aos="fade-in"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+              >
+                New Items
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
         </div>
-        <div className="keen-slider-container position-relative">
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          className="keen-slider-container position-relative"
+        >
           <button
             className="arrow arrow-left"
             onClick={() => instanceRef.current?.prev()}
@@ -197,4 +214,5 @@ const NewItems = () => {
   );
 };
 
+AOS.init();
 export default NewItems;

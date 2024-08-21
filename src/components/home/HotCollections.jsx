@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useKeenSlider } from 'keen-slider/react';
+import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HotCollections = () => {
   const apiUrl =
@@ -18,17 +20,17 @@ const HotCollections = () => {
       perView: 4,
     },
     breakpoints: {
-      '(max-width: 1200px)': {
+      "(max-width: 1200px)": {
         slides: {
           perView: 3,
         },
       },
-      '(max-width: 768px)': {
+      "(max-width: 768px)": {
         slides: {
           perView: 2,
         },
       },
-      '(max-width: 480px)': {
+      "(max-width: 480px)": {
         slides: {
           perView: 1,
         },
@@ -58,12 +60,27 @@ const HotCollections = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2
+                data-aos="fade-in"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+              >
+                Hot Collections
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
         </div>
-        <div className="keen-slider-container position-relative">
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          className="keen-slider-container position-relative"
+        >
           <button
             className="arrow arrow-left"
             onClick={() => instanceRef.current?.prev()}
@@ -71,52 +88,56 @@ const HotCollections = () => {
             &lt;
           </button>
           <div ref={sliderRef} className="keen-slider">
-            {isLoading ? (
-              new Array(4).fill(0).map((_, index) => (
-                <div className="keen-slider__slide col-lg-3 col-md-4 col-sm-6" key={index}>
-                  <div className="nft_coll skeleton">
-                    <div className="nft_wrap skeleton-img"></div>
-                    <div className="nft_coll_pp skeleton-avatar"></div>
-                    <div className="nft_coll_info">
-                      <div className="skeleton-text title"></div>
-                      <div className="skeleton-text subtitle"></div>
+            {isLoading
+              ? new Array(4).fill(0).map((_, index) => (
+                  <div
+                    className="keen-slider__slide col-lg-3 col-md-4 col-sm-6"
+                    key={index}
+                  >
+                    <div className="nft_coll skeleton">
+                      <div className="nft_wrap skeleton-img"></div>
+                      <div className="nft_coll_pp skeleton-avatar"></div>
+                      <div className="nft_coll_info">
+                        <div className="skeleton-text title"></div>
+                        <div className="skeleton-text subtitle"></div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
-            ) : (
-              hotCollections.map((collection, index) => (
-                <div className="keen-slider__slide col-lg-3 col-md-4 col-sm-6" key={index}>
-                  <div className="nft_coll">
-                    <div className="nft_wrap">
-                      <Link to={`/item-details/${collection.nftId}`}>
-                        <img
-                          src={collection.nftImage}
-                          className="lazy img-fluid"
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                    <div className="nft_coll_pp">
-                      <Link to={`/author/${collection.authorId}`}>
-                        <img
-                          className="lazy pp-coll"
-                          src={collection.authorImage}
-                          alt=""
-                        />
-                      </Link>
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="nft_coll_info">
-                      <Link to="/explore">
-                        <h4>{collection.title}</h4>
-                      </Link>
-                      <span>ERC-{collection.code}</span>
+                ))
+              : hotCollections.map((collection, index) => (
+                  <div
+                    className="keen-slider__slide col-lg-3 col-md-4 col-sm-6"
+                    key={index}
+                  >
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to={`/item-details/${collection.nftId}`}>
+                          <img
+                            src={collection.nftImage}
+                            className="lazy img-fluid"
+                            alt=""
+                          />
+                        </Link>
+                      </div>
+                      <div className="nft_coll_pp">
+                        <Link to={`/author/${collection.authorId}`}>
+                          <img
+                            className="lazy pp-coll"
+                            src={collection.authorImage}
+                            alt=""
+                          />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <h4>{collection.title}</h4>
+                        </Link>
+                        <span>ERC-{collection.code}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
-            )}
+                ))}
           </div>
           <button
             className="arrow arrow-right"
@@ -130,4 +151,5 @@ const HotCollections = () => {
   );
 };
 
+AOS.init();
 export default HotCollections;
